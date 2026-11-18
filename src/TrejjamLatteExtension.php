@@ -20,8 +20,6 @@ use RuntimeException;
  * - sha1: SHA1 hash generation
  *
  * Migrated from trejjam/utils package for Latte 3 compatibility.
- *
- * @author Jan Trejbal
  */
 final class TrejjamLatteExtension extends Extension
 {
