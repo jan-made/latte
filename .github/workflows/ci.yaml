@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["8.2", "8.3", "8.4", "8.5"]
+        php-version: ["8.4", "8.5"]
         operating-system: ["blacksmith-2vcpu-ubuntu-2404"]
       fail-fast: false
 
@@ -80,7 +80,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["8.3"]
+        php-version: ["8.4"]
         operating-system: ["blacksmith-2vcpu-ubuntu-2404"]
       fail-fast: false
 
@@ -136,7 +136,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["8.2", "8.3", "8.4", "8.5"]
+        php-version: ["8.4", "8.5"]
         operating-system: ["blacksmith-2vcpu-ubuntu-2404"]
       fail-fast: false
 

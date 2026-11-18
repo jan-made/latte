@@ -4,7 +4,7 @@
 
 **Package**: `trejjam/latte`  
 **Purpose**: Latte 3 template engine extensions and utilities  
-**PHP Support**: 8.2, 8.3, 8.4, 8.5  
+**PHP Support**: 8.4 and 8.5
 **License**: MIT  
 **Namespace**: `Trejjam\Latte`
 
@@ -368,9 +368,9 @@ git push origin main
 ## CI/CD
 
 **GitHub Actions**: `.github/workflows/ci.yaml`
-- **QA job**: Code style checks (ECS) on PHP 8.2, 8.3, 8.4, 8.5
-- **Static analysis job**: PHPStan on PHP 8.3
-- **Tests job**: Latte lint + Nette Tester on PHP 8.2, 8.3, 8.4, 8.5
+- **QA job**: Code style checks (ECS) on PHP 8.4 and 8.5
+- **Static analysis job**: PHPStan on PHP 8.4
+- **Tests job**: Latte lint + Nette Tester on PHP 8.4 and 8.5
 
 **Dependabot**: Automatic dependency updates
 - Composer packages: daily
