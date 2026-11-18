@@ -43,7 +43,11 @@ reviews:
     - path: "tests/**"
       instructions: >-
         Nette Tester tests. Snapshot changes under tests/Integration/__snapshots__ must match an intended behaviour
-        change in src; each test file must end with ->run().
+        change in src.
+    - path: "tests/**/*Test.php"
+      instructions: >-
+        Nette Tester test cases (classes extending Tester\TestCase); each file must end with ->run(). Standalone
+        scripts such as tests/latte-lint-runner.php and helpers such as tests/bootstrap.php are not test cases.
 knowledge_base:
   code_guidelines:
     enabled: true
