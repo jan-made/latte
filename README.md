@@ -14,7 +14,7 @@ Latte 3 template engine extensions and utilities, providing commonly used filter
 
 ## Requirements
 
-- PHP 8.2 to 8.5
+- PHP 8.4 or 8.5
 - Latte 3.0.20 or higher
 - Nette DI 3.2 or higher
 - Nette Utils 4.0 or higher
