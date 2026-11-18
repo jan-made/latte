@@ -21,7 +21,7 @@ Custom serializer - no html escaping, pretty: <script type="application/json">{
 }</script>
 Native serializer: <script type="application/json">{"tag":"<script>alert(\"xss\")<\/script>"}</script>
 
-No HTML-safe: &#123;"tag":"&lt;script&gt;alert(\"xss\")&lt;/script&gt;"}
+No HTML-safe: <!-- -->{"tag":"&lt;script&gt;alert(\"xss\")&lt;/script&gt;"}
 
 ASCII: {"text":"P\u0159\u00edli\u0161 \u017elu\u0165ou\u010dk\u00fd"}
 
