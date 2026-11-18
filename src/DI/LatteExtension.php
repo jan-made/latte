@@ -22,8 +22,6 @@ use Trejjam\Latte\TrejjamLatteExtension;
  *     trejjam.latte: Trejjam\Latte\DI\LatteExtension
  *
  * Or use Composer auto-discovery (no manual registration needed).
- *
- * @author Jan Trejbal
  */
 final class LatteExtension extends CompilerExtension
 {
