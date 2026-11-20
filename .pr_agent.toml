@@ -1,0 +1,43 @@
+# PR-Agent settings for this repository. PR-Agent reads this file from the
+# default branch (main). It also reads AGENTS.md as review context.
+# Options: https://github.com/The-PR-Agent/pr-agent/blob/v0.50.0/pr_agent/settings/configuration.toml
+
+[github_app]
+# Review draft pull requests too, and run /describe and /review again after each push by a person.
+# The PR-Agent host skips pull requests and pushes from bot accounts.
+feedback_on_draft_pr = true
+handle_push_trigger = true
+
+[pr_reviewer]
+num_max_findings = 5
+extra_instructions = """\
+Repository rules. Check every rule in each area the diff touches. A changed line that breaks a rule here or in AGENTS.md is a finding, even when the code runs.
+
+Filters (`src/TrejjamLatteExtension.php`):
+- `jsonFilter` wraps only HTML-safe output in `Html`. With `!html` it returns a plain string and sets `$info->contentType` to `ContentType::JavaScript`.
+- Flag an option `case` label with an uppercase letter: options pass through `strtolower(trim())`, so `'forceObjects'` never matches.
+- A filter added, renamed or removed in `getFilters()`, or an option of `jsonFilter`, comes with a change to "Available Filters" in README.md. The PR description calls a rename or removal a breaking change.
+
+DI (`src/DI/LatteExtension.php`):
+- `beforeCompile()` returns early when `latte.latteFactory` is missing and handles both `FactoryDefinition` and `ServiceDefinition`.
+
+Tests (`tests/`):
+- Flag a changed snapshot in `Integration/__snapshots__/` when the diff changes nothing in `src/`, `fixtures/` or `Integration/LatteRenderingTest.php`.
+- ECS and PHPStan skip `tests/`, so apply the AGENTS.md style rules to test files here.
+
+CI (`composer.json`, `.github/workflows/ci.yaml`):
+- A changed `php` constraint in `composer.json` comes with the same versions in the `php-version` matrices of `ci.yaml`.
+"""
+
+[pr_code_suggestions]
+# Publish only suggestions scored 5 or higher (0-10).
+suggestions_score_threshold = 5
+# Drop a suggestion whose score could not be computed; the default 7 would publish it.
+score_on_reflection_failure = 4
+extra_instructions = "Prefer existing project helpers and patterns over new abstractions. Do not suggest edits to snapshots under tests/Integration/__snapshots__; UPDATE_SNAPSHOTS=1 regenerates them."
+
+[ignore]
+# Generated code and lock files. Replaces the default list; keep vendor/** first.
+glob = [
+    "vendor/**",
+]
